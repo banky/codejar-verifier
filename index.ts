@@ -12,12 +12,12 @@ if (Bun.env.ETHERSCAN_API_KEY === undefined) {
   throw new Error("ETHERSCAN_API_KEY is not set");
 }
 
-// console.log("Building contract artifacts...");
-// const proc = Bun.spawnSync(["forge", "build"], {
-//   cwd: "../quark-scripts",
-//   env: { ...Bun.env, FOUNDRY_PROFILE: "ir" },
-// });
-// console.log(proc.stdout.toString());
+console.log("Building contract artifacts...");
+const proc = Bun.spawnSync(["forge", "build"], {
+  cwd: "../quark-scripts",
+  env: { ...Bun.env, FOUNDRY_PROFILE: "ir" },
+});
+console.log(proc.stdout.toString());
 
 const fileGlob = new Glob("../quark-scripts/src/*.sol");
 
